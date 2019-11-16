@@ -21,20 +21,10 @@ ARM64.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-ARM64.cpp
+ARM64.c
     This is the main application source file.
 
 /////////////////////////////////////////////////////////////////////////////
-Other standard files:
-
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named ARM64.pch and a precompiled types file named StdAfx.obj.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
-
+Notes:
+It is a toy project (study division algorithm) for ARM64 imclude C code with assembly insert. 
 /////////////////////////////////////////////////////////////////////////////
