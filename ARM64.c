@@ -1,5 +1,6 @@
-﻿// ARM64.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+﻿// ARM64.c 
 //
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -7,6 +8,9 @@ unsigned A, B, Q, Z, N;
 
 int main()
 {
+	printf("Size of unsigned %d\n", sizeof(unsigned));
+	printf("Size of int %d\n", sizeof(int));
+	printf("Size of uchar %d\n", sizeof(unsigned char));
 	printf("Input dividend: ");
 	scanf("%u", &A);
 	printf("Input divider: ");
