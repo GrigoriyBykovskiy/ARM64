@@ -17,12 +17,15 @@ int main()
 	scanf("%u", &B);
 	printf("A= %u, B= %u\n", A, B);
 
-	asm(
-		"adr x4, A\n"
-		"ldr x0, [x4]\n"
-		"adr x4, B\n"
-		"ldr x1, [x4]\n"
-	);
+    asm(
+        "adr x4, A\n"
+        "ldr x0, [x4]\n"
+        "adr x4, B\n"
+        "ldr x1, [x4]\n"
+        "mov x4, #1\n"
+        "mov x2, #0\n"
+        "asr x2, x0, x4\n"
+    );
 
 	return 0;
 }
