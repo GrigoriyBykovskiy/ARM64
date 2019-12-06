@@ -27,12 +27,12 @@ int main()
         "asr x2, x0, x4\n" //
         "mov x3, #0\n"
         "sub x3, x2, x1\n"
-        "blmi negative\n"
-        "negative:\n"
-        "mov x8, #0"
-        "bl positive\n"
-        "positive:\n"
-        "mov x8, #0"
+        "cmp x3, #0"
+        "blge more\n"
+        "bl less\n"
+        "more:\n"
+        "mov x8, #0\n"
+        "less:\n"
     );
 
 	return 0;
