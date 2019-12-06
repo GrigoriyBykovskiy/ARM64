@@ -27,7 +27,7 @@ int main()
         "asr x2, x0, x4\n" //
         "mov x3, #0\n"
         "sub x3, x2, x1\n"
-        "cmp x3, #0"
+        "cmp x3, #0\n"
         "blge more\n"
         "bl less\n"
         "more:\n"
