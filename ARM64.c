@@ -28,7 +28,7 @@ int main()
         "mov x3, #0\n"
         "sub x3, x2, x1\n"
         "cmp x3, #0\n"
-        "blge more\n"
+        "bge more\n"
         "bl less\n"
         "more:\n"
         "mov x8, #0\n"
