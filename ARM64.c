@@ -22,9 +22,11 @@ int main()
         "ldr x0, [x4]\n"
         "adr x4, B\n"
         "ldr x1, [x4]\n"
-        "mov x4, #1\n"
-        "mov x2, #0\n"
-        "asr x2, x0, x4\n"
+        "mov x4, #16\n"      //
+        "mov x2, #0\n"      // get N elder bits of A
+        "asr x2, x0, x4\n" //
+        "mov x3, #0\n"
+        "sub x3, x2, x1"
     );
 
 	return 0;
