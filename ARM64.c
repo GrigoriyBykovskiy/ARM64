@@ -26,7 +26,7 @@ int main()
         "mov x2, #0\n"      // get N elder bits of A
         "asr x2, x0, x4\n" //
         "mov x3, #0\n"
-        "sub x3, x2, x1"
+        "sub x3, x2, x1\n"
         "blmi negative\n"
         "negative:\n"
         "mov x8, #0"
