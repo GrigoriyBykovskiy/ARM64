@@ -4,7 +4,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-unsigned A, B, Q, Z, N;	
+unsigned A, B, Q, Z, N;
 
 int main()
 {
@@ -16,21 +16,32 @@ int main()
 	printf("Input divider: ");
 	scanf("%u", &B);
 	printf("A= %u, B= %u\n", A, B);
+	N = 16; // len of register
 
     asm(
-        "adr x4, A\n"
-        "ldr x0, [x4]\n"
-        "adr x4, B\n"
-        "ldr x1, [x4]\n"
-        "mov x4, #16\n"      //
-        "mov x2, #0\n"      // get N elder bits of A
-        "asr x2, x0, x4\n" //
-        "mov x3, #0\n"
-        "sub x3, x2, x1\n"
-        "bmi more\n"
-        "more:\n"
-        "mov x8, #0\n"
-        "less:\n"
+	"start:\n"
+        "adr x4, A\n"      //
+        "ldr x0, [x4]\n"  // x0 = A;
+        "adr x4, B\n"    //
+        "ldr x1, [x4]\n"// x1 = B;
+	"cmp x1, #0\n" // if (B == 0)
+	"beq stop\n"  //		exit;
+	"adr x4, N\n"	//
+	"ldr x2,[x4]\n"// x2 = N
+        "lsr x3, x0, x2\n" // x3 = Z (N elder bits of A)
+	"mov x4, #0\n"
+        "sub x4, x3, x1\n"// x4 = Z - B
+	"cmp x4, #0\n"// if (Z > 0) exit;
+        "bgt stop\n"
+        "mov x4, #0\n"// x4 = i;
+	"loop:\n"
+	"cmp x4, x2\n"
+	"beq stop\n"
+	"add x4, x4, #1\n"
+	"lsl x3, x3, #1\n" // z << 1
+	"\n"
+	"b loop\n"
+	"stop:\n"
     );
 
 	return 0;
