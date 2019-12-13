@@ -58,6 +58,8 @@ int main()
     "add x5, x5, x14\n"
 	"b loop\n"
 	"stop:\n"
+    "adr x4, Q\n"
+    "str x5, [x4]\n"
     );
     printf("Q is %d\n", Q);
     printf("Z is %d\n", Z);
