@@ -37,9 +37,8 @@ int main()
     "bgt stop\n"
     "mov x4, #0\n"// x4 = i;
 	"loop:\n"
-	"cmp x4, x2\n"
+	"cmp x4, x2\n" // if i == N exit;
 	"beq stop\n"
-	"add x4, x4, #1\n" // добавить в самый конец
 	"lsl x3, x3, #1\n" // z << 1
     "mov x12, #1\n" //
     "mov x13, #0\n" //
@@ -50,12 +49,15 @@ int main()
     "and x14, x0, x13\n" // x14 <- x0 & x 13
     "lsr x14, x14, x4\n" //
     "add x3, x3, x14\n"// z(0) = A (N - I)
-    "mov x12, #0\n"
-    "sub x12, x3, x1\n"// x4 = Z - B
-    "cmp x12, #0\n"// if (Z > 0) exit;
+    "mov x6, #0\n"
+    "sub x6, x3, x1\n"// x4 = Z - B
+    "cmp x6, #0\n"// if (Z > 0) exit;
     "bgt addone\n"
+    "add x4, x4, #1\n"
+    "b loop\n"
     "addone:\n"
-    "add x5, x5, x14\n"
+    "add x5, x5, #1\n"
+    "add x4, x4, #1\n"
 	"b loop\n"
 	"stop:\n"
     "adr x4, Q\n"
