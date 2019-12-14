@@ -49,10 +49,10 @@ int main()
     "lsr x14, x14, x15\n" // x14 = x14 >> buf
     "add x3, x3, x14\n"// z(0) = A (N - I)
     "mov x6, #0\n"
-    "sub x6, x3, x1\n"// x4 = Z - B
+    "sub x6, x3, x1\n"// x6 = Z - B
     "cmp x6, #0\n"// if (Z > 0)
     "bgt addone\n"
-    "add x4, x4, #1\n"
+    "add x4, x4, #1\n" //i++
     "b loop\n"
     "addone:\n"
     "mov x7, #1\n"      //
